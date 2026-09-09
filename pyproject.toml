@@ -1,0 +1,44 @@
+[project]
+name = "meerkat"
+version = "0.1.0"
+description = "Turn a plain-English request into a realtime monitor over any video or audio stream."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["stream-processing", "realtime", "multimodal", "video", "audio", "monitoring", "llm"]
+dependencies = [
+  "numpy>=1.26",
+  "openai>=1.0",
+  "anthropic>=0.40",
+  "av>=15.0",
+  "pytesseract>=0.3.13",
+  "faster-whisper>=1.1",
+  "ultralytics>=8.3",
+  "fastapi>=0.115",
+  "python-multipart>=0.0.9",
+  "uvicorn>=0.30",
+  "websockets>=12.0",
+  "sounddevice>=0.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+meerkat = "meerkat.cli:main"
+meerkat-web = "meerkat.web:main"
+meerkat-benchmark = "meerkat.benchmarks.latency:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["meerkat*"]
+
+[tool.setuptools.package-data]
+meerkat = ["web_static/*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

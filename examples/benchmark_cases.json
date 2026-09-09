@@ -1,0 +1,26 @@
+{
+  "cases": [
+    {
+      "id": "dog_beach_ball",
+      "media": "media/dog-beach-ball.mp4",
+      "prompt": "let me know when the dog picks up the beach ball",
+      "event_time_seconds": 2.5
+    },
+    {
+      "id": "spoken_detail",
+      "media": "media/conversation.mp3",
+      "prompt": "let me know who brought the blue umbrella, as soon as you find out",
+      "event_time_seconds": 14.0
+    },
+    {
+      "id": "spoken_keyword",
+      "media": "media/store-aisle.mp3",
+      "prompt": "let me know when an orange is mentioned",
+      "event_time_seconds": 4.0,
+      "options": {
+        "verifier_concurrent_requests": 4,
+        "verifier_min_request_interval_seconds": 0.2
+      }
+    }
+  ]
+}

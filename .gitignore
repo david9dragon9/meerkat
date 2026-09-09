@@ -1,0 +1,27 @@
+.env
+.venv/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Model weights, downloaded on first use
+*.pt
+
+# Media dropped in the workspace for local runs (bundled examples are tracked)
+*.mp4
+*.mov
+*.avi
+*.mkv
+!examples/media/**
+
+# Generated at runtime
+runs/
+.meerkat_audio/
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/

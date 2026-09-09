@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meerkat</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png?v=__BUILD__" />
+    <link rel="stylesheet" href="/static/styles.css?v=__BUILD__" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="media-pane">
+        <div class="topbar">
+          <div class="brand">
+            <img class="brand-logo" src="/static/logo.png?v=__BUILD__" alt="Meerkat" />
+            <div class="brand-copy">
+              <strong>Meerkat</strong>
+              <span>Realtime stream watcher</span>
+            </div>
+          </div>
+          <label>
+            <span>Source</span>
+            <select id="sourceSelect">
+              <option value="__upload__">File...</option>
+              <option value="__live_camera__">Live camera</option>
+              <option value="__live_screen__">Live screen / website</option>
+            </select>
+          </label>
+          <label class="file-picker">
+            <span>File</span>
+            <input id="fileInput" type="file" accept="video/*,audio/*" />
+            <span id="fileLabel" class="file-button">Choose a file</span>
+          </label>
+          <label class="prompt-box">
+            <span>Initial prompt</span>
+            <input id="promptInput" placeholder="let me know when someone walks into the frame" />
+          </label>
+          <label class="toggle">
+            <input id="ttsToggle" type="checkbox" checked />
+            <span>TTS</span>
+          </label>
+          <button id="startBtn">Plan</button>
+        </div>
+
+        <div class="player-wrap">
+          <video id="videoPlayer" controls playsinline></video>
+          <audio id="audioPlayer" preload="metadata"></audio>
+          <div id="audioSurface" class="audio-surface" hidden>
+            <div class="audio-kicker">Audio</div>
+            <div id="audioFileName" class="audio-file">No audio selected</div>
+            <button id="audioPlayBtn" class="audio-play-btn">Play</button>
+          </div>
+          <div class="time-strip">
+            <button id="livePlayPauseBtn" hidden>Pause</button>
+            <span id="playState">idle</span>
+            <strong id="mediaClock">00:00.000</strong>
+          </div>
+        </div>
+
+        <div class="live-prompt">
+          <input id="livePromptInput" placeholder="Add a new realtime prompt while media plays..." />
+          <button id="sendPromptBtn">Send</button>
+        </div>
+
+        <article id="previewPanel" class="frame-preview" hidden>
+          <header>
+            <h2>Timestamp Preview</h2>
+            <span id="previewTime">00:00.000</span>
+          </header>
+          <img id="previewImage" alt="Video frame preview" />
+        </article>
+      </section>
+
+      <section class="side-pane">
+        <article class="panel plan-panel">
+          <header>
+            <h2>Plan</h2>
+            <span id="sessionState">not started</span>
+          </header>
+          <div id="planView" class="plan-view"></div>
+        </article>
+
+        <article class="panel messages-panel">
+          <header>
+            <h2>User Messages</h2>
+            <span id="messageCount">0</span>
+          </header>
+          <div id="messagesView" class="scroll-list"></div>
+        </article>
+
+        <article class="panel logs-panel">
+          <header>
+            <h2>Model Log</h2>
+            <span id="logCount">0</span>
+          </header>
+          <div id="logsView" class="scroll-list dense"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/static/app.js?v=__BUILD__"></script>
+  </body>
+</html>

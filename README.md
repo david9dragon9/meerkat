@@ -135,6 +135,12 @@ Open <http://127.0.0.1:8000> and pick a source:
 
   <img src="media/livescreen.webp" alt="A shared browser tab showing a baseball broadcast, where OCR on the scoreboard feeds a verifier that reports the Dodgers scoring a run" />
 
+Can also track changes (e.g. number of fingers in camera) and state.
+
+<div align="center">
+  <img src="media/fingers.webp" alt="A live camera run counting fingers, reporting two fingers and then three as the count changes, each message linking back to the stream time that produced it" />
+</div>
+
 ### As a library
 
 ```python
